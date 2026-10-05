@@ -53,21 +53,86 @@ void print_array(unsigned char * data, unsigned int length) {
 }
 
 unsigned char find_median(unsigned char * data, unsigned int length) {
-  return 0;
+  if (data == NULL || length == 0) {
+    return 0;
+  }
+
+  sort_array(data, length);
+
+  if (length % 2 == 0) {
+    /* Average of the two middle values, rounded down */
+    return (unsigned char)(((unsigned int)data[length / 2 - 1] +
+                            data[length / 2]) / 2);
+  }
+  return data[length / 2];
 }
 
 unsigned char find_mean(unsigned char * data, unsigned int length) {
-  return 0;
+  unsigned long sum = 0;
+  unsigned int i;
+
+  if (data == NULL || length == 0) {
+    return 0;
+  }
+
+  for (i = 0; i < length; i++) {
+    sum += data[i];
+  }
+  /* Integer division rounds down */
+  return (unsigned char)(sum / length);
 }
 
 unsigned char find_maximum(unsigned char * data, unsigned int length) {
-  return 0;
+  unsigned char max;
+  unsigned int i;
+
+  if (data == NULL || length == 0) {
+    return 0;
+  }
+
+  max = data[0];
+  for (i = 1; i < length; i++) {
+    if (data[i] > max) {
+      max = data[i];
+    }
+  }
+  return max;
 }
 
 unsigned char find_minimum(unsigned char * data, unsigned int length) {
-  return 0;
+  unsigned char min;
+  unsigned int i;
+
+  if (data == NULL || length == 0) {
+    return 0;
+  }
+
+  min = data[0];
+  for (i = 1; i < length; i++) {
+    if (data[i] < min) {
+      min = data[i];
+    }
+  }
+  return min;
 }
 
 void sort_array(unsigned char * data, unsigned int length) {
+  unsigned int i;
+  unsigned int j;
+  unsigned char temp;
 
+  if (data == NULL || length < 2) {
+    return;
+  }
+
+  /* Insertion sort, largest to smallest */
+  for (i = 1; i < length; i++) {
+    temp = data[i];
+    j = i;
+    while (j > 0 && data[j - 1] < temp) {
+      data[j] = data[j - 1];
+      j--;
+    }
+    data[j] = temp;
+  }
 }
