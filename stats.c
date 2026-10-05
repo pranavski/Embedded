@@ -40,16 +40,45 @@ int main() {
 
   /* Other Variable Declarations Go Here */
   /* Statistics and Printing Functions Go Here */
+  printf("Original data set:\n");
+  print_array(test, SIZE);
+
+  print_statistics(test, SIZE);
+
+  sort_array(test, SIZE);
+  printf("\nSorted data set (largest to smallest):\n");
+  print_array(test, SIZE);
 
   return 0;
 }
 
 void print_statistics(unsigned char * data, unsigned int length) {
+  if (data == NULL || length == 0) {
+    printf("No data to analyze.\n");
+    return;
+  }
 
+  printf("\nStatistics (%u elements):\n", length);
+  printf("  Minimum: %3u\n", find_minimum(data, length));
+  printf("  Maximum: %3u\n", find_maximum(data, length));
+  printf("  Mean:    %3u\n", find_mean(data, length));
+  printf("  Median:  %3u\n", find_median(data, length));
 }
 
 void print_array(unsigned char * data, unsigned int length) {
+  unsigned int i;
 
+  if (data == NULL || length == 0) {
+    printf("  (empty)\n");
+    return;
+  }
+
+  for (i = 0; i < length; i++) {
+    printf("  [%2u] = %3u", i, data[i]);
+    if ((i + 1) % 8 == 0 || i == length - 1) {
+      printf("\n");
+    }
+  }
 }
 
 unsigned char find_median(unsigned char * data, unsigned int length) {
