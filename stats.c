@@ -9,13 +9,16 @@
  *
  *****************************************************************************/
 /**
- * @file <Add File Name> 
- * @brief <Add Brief Description Here >
+ * @file stats.c
+ * @brief Statistics analysis of an unsigned char data set
  *
- * <Add Extended Description Here>
+ * Analyzes a 40-element array of unsigned char data and reports its
+ * maximum, minimum, mean, and median, rounded down to the nearest integer.
+ * The array is also sorted from largest to smallest and printed to the
+ * screen.
  *
- * @author <Add FirsName LastName>
- * @date <Add date >
+ * @author Pranav Surampudi
+ * @date 2026-10-05
  *
  */
 
@@ -27,7 +30,7 @@
 /* Size of the Data Set */
 #define SIZE (40)
 
-void main() {
+int main() {
 
   unsigned char test[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,
                               114, 88,   45,  76, 123,  87,  25,  23,
@@ -38,6 +41,33 @@ void main() {
   /* Other Variable Declarations Go Here */
   /* Statistics and Printing Functions Go Here */
 
+  return 0;
 }
 
-/* Add other Implementation File Code Here */
+void print_statistics(unsigned char * data, unsigned int length) {
+
+}
+
+void print_array(unsigned char * data, unsigned int length) {
+
+}
+
+unsigned char find_median(unsigned char * data, unsigned int length) {
+  return 0;
+}
+
+unsigned char find_mean(unsigned char * data, unsigned int length) {
+  return 0;
+}
+
+unsigned char find_maximum(unsigned char * data, unsigned int length) {
+  return 0;
+}
+
+unsigned char find_minimum(unsigned char * data, unsigned int length) {
+  return 0;
+}
+
+void sort_array(unsigned char * data, unsigned int length) {
+
+}
